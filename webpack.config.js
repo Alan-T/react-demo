@@ -3,14 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  devServer: {
+    static: './dist',
+  },
   entry: {
     idnex: './src/index.js',
-    print: './src/print.js',
   },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
+    clean: true,
+    publicPath: '/',
   },
   module: {
     rules: [{
