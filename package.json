@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Alan-T/react-demo#readme",
   "dependencies": {
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
