@@ -1,12 +1,17 @@
-import _ from 'lodash';
+import './style.css';
+import Icon from './icon.png';
+import printMe from './print.js';
 
- function component() {
-   const element = document.createElement('div');
+function component() {
+  const element = document.getElementById('root');
+  const btn = document.createElement('button');
 
-  // lodash 在当前 script 中使用 import 引入
-   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
 
-   return element;
- }
+  element.appendChild(btn);
 
- document.body.appendChild(component());
+  return element;
+}
+
+document.body.appendChild(component());
