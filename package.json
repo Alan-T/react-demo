@@ -1,7 +1,7 @@
 {
   "name": "react-demo",
-  "version": "1.0.0",
-  "description": "练习webpack 打包react项目\r react \r webpack\r less\r 测试",
+  "version": "1.0.1",
+  "description": "ces",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
