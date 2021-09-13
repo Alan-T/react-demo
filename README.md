@@ -2,7 +2,7 @@
 
 ## 搭建一个干净的react脚手架
 
-## Environment Prepare
+## Environment Prepare （环境准备）
 
 Install `node_modules`:
 
@@ -16,13 +16,13 @@ or
 yarn
 ```
 
-### Start project
+### Start project （项目启动）
 
 ```bash
 npm run serve
 ```
 
-### Build project
+### Build project （项目构建）
 
 ```bash
 npm run build
