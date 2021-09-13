@@ -1,10 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 打包分离 css
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin'); // 压缩 css
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
 
-module.exports = (env) => {
+const BaseConfig = () => {
 
     // css/css module 正则表达式
     const cssRegex = /\.css$/;
@@ -17,11 +16,9 @@ module.exports = (env) => {
     const stylModuleRegex = /\.module\.styl$/;
 
     return {
-        mode: "development",
-        
         resolve: {
             // modules: [path.resolve(__dirname, '../src')],
-            extensions: ['.js', '.jsx'],
+            extensions: ['.js', '.jsx', 'less', 'css','json',],
             // 别名
             alias: {
                 '@': path.resolve(__dirname, '../src')
@@ -31,7 +28,7 @@ module.exports = (env) => {
         entry: {
             index: path.resolve(__dirname, "../src/index.jsx"),
         },
-        devtool: 'inline-source-map',
+
         output: {
             // 构建文件名称
             filename: 'js/[name].[hash:8].js',
@@ -117,13 +114,7 @@ module.exports = (env) => {
                 },
             ]
         },
-        // 优化
-        optimization: {
-            minimizer: [
-                new CssMinimizerWebpackPlugin(),
-            ],
-            minimize: true,
-        },
+
         // 插件
         plugins: [
             // 生成 index.html
@@ -143,13 +134,6 @@ module.exports = (env) => {
          * 4. hot: 是否热加载（ webpack5 内置了热加载） https: //webpack.docschina.org/plugins/hot-module-replacement-plugin/#root
          * 5. open: 是否打开浏览器 
          */
-        devServer: {
-            // contentBase: path.resolve(__dirname, '../dist'),
-            host: '127.0.0.1',
-            port: 9000,
-            hot: true,
-            open: true,
-        },
         cache: {
             type: 'filesystem',
             // 可选配置
@@ -159,4 +143,8 @@ module.exports = (env) => {
             name: 'development-cache',
         },
     }
+}
+
+module.exports = {
+    BaseConfig
 }
