@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 打包分离 css
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');  // 压缩 css
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
 
 module.exports = (env) => {
@@ -27,7 +29,7 @@ module.exports = (env) => {
         devtool: 'inline-source-map',
         output: {
             // 打包文件根目录
-            filename: '[name].[hash:8].js',
+            filename: 'js/[name].[hash:8].js',
             path: path.resolve(__dirname, "../dist/"),
             // 清除历史打包文件
             clean: true,
@@ -41,12 +43,12 @@ module.exports = (env) => {
                 {
                     test: cssRegex,
                     exclude: cssModuleRegex,
-                    use: ["style-loader", "css-loader", "postcss-loader"]
+                    use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
                 },
                 {
                     test: cssModuleRegex,
                     use: [
-                        "style-loader",
+                        MiniCssExtractPlugin.loader,
                         {
                             loader: "css-loader",
                             options: {
@@ -61,12 +63,12 @@ module.exports = (env) => {
                 {
                     test: stylRegex,
                     exclude: stylModuleRegex,
-                    use: ["style-loader", "css-loader", "postcss-loader", "stylus-loader"]
+                    use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "stylus-loader"]
                 },
                 {
                     test: stylModuleRegex,
                     use: [
-                        "style-loader",
+                        MiniCssExtractPlugin.loader,
                         {
                             loader: "css-loader",
                             options: {
@@ -82,13 +84,13 @@ module.exports = (env) => {
                 {
                     test: lessRegex,
                     exclude: lessModuleRegex,
-                    use: ["style-loader", "css-loader", "postcss-loader", "less-loader"],
+                    use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "less-loader"],
                     sideEffects: true,
                 },
                 {
                     test: lessModuleRegex,
                     use: [
-                        "style-loader",
+                        MiniCssExtractPlugin.loader,
                         {
                             loader: "css-loader",
                             options: {
@@ -107,12 +109,21 @@ module.exports = (env) => {
                 },
             ]
         },
+        optimization: {
+            minimizer: [
+                new CssMinimizerWebpackPlugin(),
+            ],
+            minimize: true,
+        },
         plugins: [
             // 生成 index.html
             new HtmlWebpackPlugin({
                 filename: "index.html",
                 template: path.resolve(__dirname, "../public/index.html"),
             }),
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].[hash:8].css'
+            })
         ],
         // 测试启动配置
         devServer: {
