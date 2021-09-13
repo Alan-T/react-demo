@@ -1,7 +1,7 @@
 {
   "name": "webpack5-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "webpack配置练习",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
     "build": "cross-env webpack --config config/webpack.config.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "alan-zhou",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Alan-T/react-demo/issues"
