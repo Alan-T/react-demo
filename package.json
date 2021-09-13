@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --config webpack.config.js",
-    "watch": "webpack --watch",
-    "build": "webpack "
+    "dev": "webpack serve --config config/webpack.config.js",
+    "watch": "webpack --watch --config config/webpack.config.js",
+    "build": "cross-env webpack --config config/webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "@babel/preset-react": "^7.14.5",
     "autoprefixer": "^10.3.4",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "less": "^4.1.1",

@@ -17,25 +17,25 @@ module.exports = (env) => {
     return {
         mode: "development",
         resolve: {
-            // modules: [path.resolve(__dirname, 'src')],
+            // modules: [path.resolve(__dirname, '../src')],
             extensions: ['.js', '.jsx'],
             // alias :{ moment$: 'moment/moment.js' }
         },
         entry: {
-            index: path.resolve(__dirname, "src/index.jsx"),
+            index: path.resolve(__dirname, "../src/index.jsx"),
         },
         devtool: 'inline-source-map',
         output: {
             // 打包文件根目录
             filename: '[name].[hash:8].js',
-            path: path.resolve(__dirname, "dist/"),
+            path: path.resolve(__dirname, "../dist/"),
             clean: true,
         },
         module: {
             rules: [{
                     test: /\.(jsx|js)?$/,
                     use: ["babel-loader"],
-                    include: path.resolve(__dirname, 'src'),
+                    include: path.resolve(__dirname, '../src'),
                 },
                 {
                     test: cssRegex,
@@ -110,7 +110,7 @@ module.exports = (env) => {
             // 生成 index.html
             new HtmlWebpackPlugin({
                 filename: "index.html",
-                template: path.resolve(__dirname, "public/index.html"),
+                template: path.resolve(__dirname, "../public/index.html"),
             }),
         ],
         devServer: {
