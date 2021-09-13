@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 打包分离 css
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');  // 压缩 css
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin'); // 压缩 css
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
 
 module.exports = (env) => {
@@ -21,6 +21,10 @@ module.exports = (env) => {
         resolve: {
             // modules: [path.resolve(__dirname, '../src')],
             extensions: ['.js', '.jsx'],
+            // 别名
+            alias: {
+                '@': path.resolve(__dirname, '../src')
+            }
             // alias :{ moment$: 'moment/moment.js' }
         },
         entry: {
@@ -125,10 +129,20 @@ module.exports = (env) => {
                 filename: 'css/[name].[hash:8].css'
             })
         ],
-        // 测试启动配置
+        /**
+         * devServer: 开发服务器 https: //webpack.docschina.org/configuration/dev-server/
+         * 1. contentBase: 访问打包好的文件夹
+         * 2. host
+         * 3. port: 端口
+         * 4. hot: 是否热加载（ webpack5 内置了热加载） https: //webpack.docschina.org/plugins/hot-module-replacement-plugin/#root
+         * 5. open: 是否打开浏览器 
+         */
         devServer: {
-            port: 8080,
-            host: '0.0.0.0',
+            // contentBase: path.resolve(__dirname, '../dist'),
+            host: '127.0.0.1',
+            port: 9000,
+            hot: true,
+            open: true,
         },
         cache: {
             type: 'filesystem',
