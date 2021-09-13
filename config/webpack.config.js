@@ -18,6 +18,7 @@ module.exports = (env) => {
 
     return {
         mode: "development",
+        
         resolve: {
             // modules: [path.resolve(__dirname, '../src')],
             extensions: ['.js', '.jsx'],
@@ -32,11 +33,13 @@ module.exports = (env) => {
         },
         devtool: 'inline-source-map',
         output: {
-            // 打包文件根目录
+            // 构建文件名称
             filename: 'js/[name].[hash:8].js',
+            // 构建项目路径
             path: path.resolve(__dirname, "../dist/"),
             // 清除历史打包文件
             clean: true,
+            // 构建图片文件格式
             assetModuleFilename: "images/[name].[hash:8].[ext]",
         },
         module: {
@@ -114,12 +117,14 @@ module.exports = (env) => {
                 },
             ]
         },
+        // 优化
         optimization: {
             minimizer: [
                 new CssMinimizerWebpackPlugin(),
             ],
             minimize: true,
         },
+        // 插件
         plugins: [
             // 生成 index.html
             new HtmlWebpackPlugin({
