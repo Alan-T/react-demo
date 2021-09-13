@@ -37,6 +37,7 @@ module.exports = (env) => {
             path: path.resolve(__dirname, "../dist/"),
             // 清除历史打包文件
             clean: true,
+            assetModuleFilename: "images/[name].[hash:8].[ext]",
         },
         module: {
             rules: [{
