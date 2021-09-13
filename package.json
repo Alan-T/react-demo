@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --config config/webpack.config.js",
+    "dev": "cross-env webpack serve --config config/webpack.config.js",
     "watch": "webpack --watch --config config/webpack.config.js",
-    "build": "cross-env webpack --config config/webpack.config.js"
+    "build": "cross-env webpack --config config/webpack.config.js",
+    "start": "npm run dev"
   },
   "keywords": [],
   "author": "alan-zhou",

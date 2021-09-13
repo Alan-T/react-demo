@@ -29,6 +29,7 @@ module.exports = (env) => {
             // 打包文件根目录
             filename: '[name].[hash:8].js',
             path: path.resolve(__dirname, "../dist/"),
+            // 清除历史打包文件
             clean: true,
         },
         module: {
@@ -113,6 +114,7 @@ module.exports = (env) => {
                 template: path.resolve(__dirname, "../public/index.html"),
             }),
         ],
+        // 测试启动配置
         devServer: {
             port: 8080,
             host: '0.0.0.0',
