@@ -2,6 +2,8 @@
 
 ## 搭建一个干净的react脚手架
 
+## Environment Prepare
+
 Install `node_modules`:
 
 ```bash
