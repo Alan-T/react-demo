@@ -11,9 +11,6 @@ const BaseConfig = () => {
     // less/less module 正则表达式
     const lessRegex = /\.less$/;
     const lessModuleRegex = /\.module\.less$/;
-    // stylus/stylus module 正则表达式
-    const stylRegex = /\.styl$/;
-    const stylModuleRegex = /\.module\.styl$/;
 
     return {
         resolve: {
@@ -66,27 +63,6 @@ const BaseConfig = () => {
                     ]
                 },
                 {
-                    test: stylRegex,
-                    exclude: stylModuleRegex,
-                    use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "stylus-loader"]
-                },
-                {
-                    test: stylModuleRegex,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        {
-                            loader: "css-loader",
-                            options: {
-                                modules: {
-                                    getLocalIdent: getCSSModuleLocalIdent,
-                                }
-                            }
-                        },
-                        "postcss-loader",
-                        "stylus-loader"
-                    ]
-                },
-                {
                     test: lessRegex,
                     exclude: lessModuleRegex,
                     use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "less-loader"],
@@ -126,14 +102,7 @@ const BaseConfig = () => {
                 filename: 'css/[name].[hash:8].css'
             })
         ],
-        /**
-         * devServer: 开发服务器 https: //webpack.docschina.org/configuration/dev-server/
-         * 1. contentBase: 访问打包好的文件夹
-         * 2. host
-         * 3. port: 端口
-         * 4. hot: 是否热加载（ webpack5 内置了热加载） https: //webpack.docschina.org/plugins/hot-module-replacement-plugin/#root
-         * 5. open: 是否打开浏览器 
-         */
+
         cache: {
             type: 'filesystem',
             // 可选配置
