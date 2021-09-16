@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const { BaseConfig } = require('./webpack.config.base')
+const webpack = require('webpack');
 
 module.exports = merge(BaseConfig(), {
     mode: 'development',
@@ -18,5 +19,18 @@ module.exports = merge(BaseConfig(), {
         port: 9000,
         hot: true,
         open: true,
+        // proxy: {       // 开发代理，发布后需要nginx代理
+        //     '/api/': {
+        //         target: 'https://api.xxxx.cn',
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api/': '',
+        //         },
+        //         secure: false,   // 设置支持https协议的代理
+        //     },
+        // }
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+    ]
 })
