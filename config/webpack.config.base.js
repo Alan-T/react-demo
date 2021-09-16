@@ -1,3 +1,6 @@
+/*
+    通用环境配置
+*/
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 打包分离 css

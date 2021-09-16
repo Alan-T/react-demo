@@ -1,3 +1,7 @@
+/*
+    开发环境配置
+*/
+
 const { merge } = require('webpack-merge');
 const { BaseConfig } = require('./webpack.config.base')
 const webpack = require('webpack');
