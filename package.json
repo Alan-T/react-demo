@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env webpack serve --config config/webpack.config.dev.js",
+    "dev": "cross-env webpack serve --config config/webpack.config.dev.js --port 9001",
     "watch": "webpack --watch --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.prod.js",
     "start": "npm run dev"
