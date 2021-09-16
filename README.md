@@ -27,3 +27,5 @@ npm run serve
 ```bash
 npm run build
 ```
+
+支持react,es6.less

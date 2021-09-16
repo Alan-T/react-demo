@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less';
-import BaseLayout from './layout/';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BaseLayout />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
