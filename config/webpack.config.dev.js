@@ -15,10 +15,10 @@ module.exports = merge(BaseConfig(), {
     */
     devServer: {
         // contentBase: path.resolve(__dirname, '../dist'),
-        host: '127.0.0.1',
-        port: 9000,
-        hot: true,
-        open: true,
+        host: '127.0.0.1', //本地访问
+        port: 9000, // 默认端口
+        hot: true,    // 模块热更新
+        open: true,   // 启动自动打开页面
         // proxy: {       // 开发代理，发布后需要nginx代理
         //     '/api/': {
         //         target: 'https://api.xxxx.cn',
