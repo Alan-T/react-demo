@@ -18,7 +18,7 @@ const BaseConfig = () => {
     return {
         resolve: {
             // modules: [path.resolve(__dirname, '../src')],
-            extensions: ['.js', '.jsx', 'less', 'css','json',],
+            extensions: ['.js', '.jsx', 'less', 'css', 'json',],
             // 别名
             alias: {
                 '@': path.resolve(__dirname, '../src')
@@ -41,56 +41,56 @@ const BaseConfig = () => {
         },
         module: {
             rules: [{
-                    test: /\.(jsx|js)?$/,
-                    use: ["babel-loader"],
-                    include: path.resolve(__dirname, '../src'),
-                },
-                {
-                    test: cssRegex,
-                    exclude: cssModuleRegex,
-                    use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
-                },
-                {
-                    test: cssModuleRegex,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        {
-                            loader: "css-loader",
-                            options: {
-                                modules: {
-                                    getLocalIdent: getCSSModuleLocalIdent,
-                                }
+                test: /\.(jsx|js)?$/,
+                use: ["babel-loader"],
+                include: path.resolve(__dirname, '../src'),
+            },
+            {
+                test: cssRegex,
+                exclude: cssModuleRegex,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+            },
+            {
+                test: cssModuleRegex,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: {
+                                getLocalIdent: getCSSModuleLocalIdent,
                             }
-                        },
-                        "postcss-loader"
-                    ]
-                },
-                {
-                    test: lessRegex,
-                    exclude: lessModuleRegex,
-                    use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "less-loader"],
-                    sideEffects: true,
-                },
-                {
-                    test: lessModuleRegex,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        {
-                            loader: "css-loader",
-                            options: {
-                                modules: {
-                                    getLocalIdent: getCSSModuleLocalIdent,
-                                }
+                        }
+                    },
+                    "postcss-loader"
+                ]
+            },
+            {
+                test: lessRegex,
+                exclude: lessModuleRegex,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "less-loader"],
+                sideEffects: true,
+            },
+            {
+                test: lessModuleRegex,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: {
+                                getLocalIdent: getCSSModuleLocalIdent,
                             }
-                        },
-                        "postcss-loader",
-                        "less-loader"
-                    ],
-                },
-                {
-                    test: /\.(jpe?g|png|gif|svg|woff|woff2|eot|ttf|otf)$/i,
-                    type: "asset/resource",
-                },
+                        }
+                    },
+                    "postcss-loader",
+                    "less-loader"
+                ],
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg|woff|woff2|eot|ttf|otf)$/i,
+                type: "asset/resource",
+            },
             ]
         },
 
@@ -108,11 +108,7 @@ const BaseConfig = () => {
 
         cache: {
             type: 'filesystem',
-            // 可选配置
-            buildDependencies: {
-                config: [__filename], // 当构建依赖的config文件（通过 require 依赖）内容发生变化时，缓存失效
-            },
-            name: 'development-cache',
+            allowCollectingMemory: true,
         },
     }
 }
