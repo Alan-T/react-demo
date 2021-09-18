@@ -9,6 +9,7 @@ const webpack = require('webpack');
 module.exports = merge(BaseConfig(), {
     mode: 'development',
     devtool: 'inline-source-map',
+    watch:true,
     /**
     * devServer: 开发服务器 https: //webpack.docschina.org/configuration/dev-server/
     * 1. contentBase: 访问打包好的文件夹

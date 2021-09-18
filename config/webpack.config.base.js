@@ -23,7 +23,6 @@ const BaseConfig = () => {
             alias: {
                 '@': path.resolve(__dirname, '../src')
             }
-            // alias :{ moment$: 'moment/moment.js' }
         },
         entry: {
             index: path.resolve(__dirname, "../src/index.jsx"),
