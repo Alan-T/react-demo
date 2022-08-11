@@ -1,13 +1,22 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import NavBar from "./navBar";
+import { Outlet, NavLink } from "react-router-dom";
 
 const Layout = () => {
+  const navColor = (isActive) => {
+    return { color: isActive ? "red" : "" };
+  };
   return (
     <div className="App">
+      <NavBar />
       <h1>Welcome to React Router!</h1>
       <nav>
-        <Link to="/home">Home</Link>
-        <Link to="/about">About</Link>
+        <NavLink style={({ isActive }) => navColor(isActive)} to="/home">
+          Home
+        </NavLink>
+        <NavLink style={({ isActive }) => navColor(isActive)} to="/about">
+          About
+        </NavLink>
       </nav>
       <Outlet />
     </div>

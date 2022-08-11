@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "../pages/Login";
+import Login from "../pages/login";
 import Layout from "../layouts/index";
 import Home from "../pages/Home";
 import About from "../pages/About";
