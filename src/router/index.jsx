@@ -4,6 +4,7 @@ import Login from "../pages/login";
 import Layout from "../layouts/index";
 import Home from "../pages/Home";
 import About from "../pages/About";
+import NoMatch from "../pages/NoMatch";
 export default function Router() {
   return (
     <Routes>
@@ -11,7 +12,9 @@ export default function Router() {
       <Route path="/" element={<Layout />}>
         <Route path="home" element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route index element={<Home />} />
       </Route>
+      <Route path="*" element={<NoMatch />} />
     </Routes>
   );
 }
