@@ -1,13 +1,13 @@
 .loginContainer {
   height: 100vh;
-  background: #d3caca;
+  background: rgb(14,50,101);
 
   .loginBox {
     height: 400px;
     width: 600px;
     border-radius: 16px;
-    background: #d3caca;
-    box-shadow: 20px 20px 60px #b3acac, -20px -20px 60px #f3e8e8;
+    background: rgb(245,176,135);
+    box-shadow: 20px 20px 60px rgb(17, 61, 123), -20px -20px 60px rgb(23, 68, 132);
     position: absolute;
     top: 50%;
     right: 10%;
@@ -30,16 +30,23 @@
       input {
         border: transparent;
         border-radius: 4px;
-        background-color: rgb(176, 191, 194);
+        padding:0 6px;
+        background-color: rgb(192, 209, 178);
         height: 40px;
         width: 300px;
+        &::-webkit-input-placeholder{
+          padding-left: 6px;
+        }
+        &:focus{
+          
+        }
       }
     }
     button {
       height: 60px;
       width: 400px;
       font-size: 24px;
-      background: rgb(83, 151, 234);
+      background: rgb(188, 56, 35);
       border: transparent;
       border-radius: 4px;
       color: #fff;
@@ -50,33 +57,33 @@
 
   .circle {
     position: absolute;
-    top: 18%;
-    left: 20%;
-    height: 120px;
-    width: 120px;
-    border-radius: 60px;
-    background: #d3caca;
-    box-shadow: 20px 20px 60px #b3acac, -20px -20px 60px #f3e8e8;
+    top: 10vh;
+    left: 10vw;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 5vw;
+    background: rgb(245,176,135);
+    box-shadow: 20px 20px 60px rgb(17, 61, 123), -20px -20px 60px rgb(23, 68, 132);
   }
 
   .box1 {
     position: absolute;
-    top: 18%;
-    left: 28%;
-    height: 120px;
-    width: 400px;
+    top: 10vh;
+    left: 24vW;
+    height: 10vw;
+    width: 20vw;
     border-radius: 16px;
-    background: #d3caca;
-    box-shadow: 20px 20px 60px #b3acac, -20px -20px 60px #f3e8e8;
+    background: rgb(245,176,135);
+    box-shadow: 20px 20px 60px rgb(17, 61, 123), -20px -20px 60px rgb(23, 68, 132);
   }
   .box2 {
     position: absolute;
-    top: 34%;
-    left: 28%;
-    height: 600px;
-    width: 400px;
+    top: 34vh;
+    left: 10vW;
+    height: 56vh;
+    width: 34vw;
     border-radius: 16px;
-    background: #d3caca;
-    box-shadow: 20px 20px 60px #b3acac, -20px -20px 60px #f3e8e8;
+    background: rgb(245,176,135);
+    box-shadow: 20px 20px 60px rgb(17, 61, 123), -20px -20px 60px rgb(23, 68, 132);
   }
 }
